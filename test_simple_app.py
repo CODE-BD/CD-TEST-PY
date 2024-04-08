@@ -1,15 +1,14 @@
 import unittest
 from simple_app import greet
+import sys
+from io import StringIO
 
 class TestSimpleApp(unittest.TestCase):
     def test_greet(self):
         # Redirect standard input to provide a name
-        import sys
-        from io import StringIO
         sys.stdin = StringIO('Alice\n')
 
         # Call the greet function and capture output
-        from io import StringIO
         captured_output = StringIO()
         sys.stdout = captured_output
         greet()
