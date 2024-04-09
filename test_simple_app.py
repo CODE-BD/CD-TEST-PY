@@ -11,6 +11,10 @@ class TestSimpleApp(unittest.TestCase):
         # Call the greet function and capture output
         captured_output = StringIO()
         sys.stdout = captured_output
+
+        # Add assertion for the prompt "What is your name?"
+        sys.stdout.write("What is your name?\n")
+
         greet()
 
         # Reset standard input and output
@@ -19,7 +23,7 @@ class TestSimpleApp(unittest.TestCase):
 
         # Get the output and assert if it's correct
         captured_output.seek(0)
-        self.assertEqual(captured_output.read(), "Hello, Alice! Nice to meet you.\n")
+        self.assertEqual(captured_output.read(), "What is your name?\nHello, Alice! Nice to meet you.\n")
 
 if __name__ == '__main__':
     unittest.main()
