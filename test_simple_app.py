@@ -23,7 +23,9 @@ class TestSimpleApp(unittest.TestCase):
 
         # Get the output and assert if it's correct
         captured_output.seek(0)
-        self.assertEqual(captured_output.read(), "What is your name?\nHello, Alice! Nice to meet you.\n")
+        # Update the expected output to include the prompt
+        expected_output = "What is your name?\nHello, Alice! Nice to meet you.\n"
+        self.assertEqual(captured_output.read(), expected_output)
 
 if __name__ == '__main__':
     unittest.main()
